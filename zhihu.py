@@ -13,7 +13,7 @@ s = requests.Session()
 s.post('http://www.zhihu.com/login',\
         data={'_xsrf':BeautifulSoup(s.get('http://www.zhihu.com/#signin').content).find(type='hidden')['value'], \
               'email':'xxx', 'password':'xxx', 'rememberme':'y'}, headers=headers)
-print sys.argv[1]
+
 r = s.get('http://www.zhihu.com/people/%s/followees' % sys.argv[1], headers=headers) 
 html = BeautifulSoup(r.content)
 followees_num = int(html.find('div',attrs={'class':'zm-profile-side-following zg-clear'}).find('a').strong.string)
