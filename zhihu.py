@@ -12,7 +12,7 @@ s = requests.Session()
 '''email and password should be your own'''
 s.post('http://www.zhihu.com/login',\
         data={'_xsrf':BeautifulSoup(s.get('http://www.zhihu.com/#signin').content).find(type='hidden')['value'], \
-              'email':'xxx', 'password':'xxx', 'rememberme':'y'}, headers=headers)
+              'email':'xxxx', 'password':'xxxx', 'rememberme':'y'}, headers=headers)
 
 r = s.get('http://www.zhihu.com/people/%s/followees' % sys.argv[1], headers=headers) 
 html = BeautifulSoup(r.content)
